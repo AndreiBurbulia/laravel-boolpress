@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('guest.welcome');
 });
-Route::resource('products', ProductController::class)->only('index', 'show');
+Route::resource('article', ArticleController::class)->only('index', 'show');
 
 
 Auth::routes();
@@ -25,6 +25,6 @@ Auth::routes();
 /*rotte admin */
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
-    Route::resource('products', ProductController::class);
+    Route::resource('article', ArticleController::class);
 
 });

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Product;
+use App\Article;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-
-        return view('admin.products.index', compact('products'));
+        $articles = Article::all();
+        return view('guest.articles.index', compact('articles'));
     }
 
     /**
@@ -44,10 +42,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Article $article)
     {
         //
     }
@@ -55,10 +53,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Article $article)
     {
         //
     }
@@ -67,10 +65,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Article $article)
     {
         //
     }
@@ -78,10 +76,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Article $article)
     {
         //
     }

@@ -37421,9 +37421,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Programmi\MAMP\htdocs\php\autenticazione\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\Programmi\MAMP\htdocs\php\autenticazione\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\Programmi\MAMP\htdocs\php\autenticazione\resources\sass\admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! D:\Programmi\MAMP\htdocs\php\laravel-boolpress\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\Programmi\MAMP\htdocs\php\laravel-boolpress\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\Programmi\MAMP\htdocs\php\laravel-boolpress\resources\sass\admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })
