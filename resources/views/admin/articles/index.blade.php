@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="container">
+        <a class="btn btn-success m-3" href="{{ route('admin.article.create') }}">Add new Article</a>
+
         <table class="table">
             <thead>
                 <tr>
@@ -23,7 +25,8 @@
                         <td>{{ $article->create_date }}</td>
                         <td>
                             <a href="{{ route('admin.article.show', $article->id) }}"><i class="fas fa-eye"></i></a>
-                            <i class="fas fa-edit"></i>
+                            <a href="{{ route('admin.article.edit', $article->id) }}"><i class="fas fa-edit"></i></a>
+
                             <form action="{{ route('admin.article.destroy', $article->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
