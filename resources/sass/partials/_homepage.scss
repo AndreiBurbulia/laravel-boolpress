@@ -1,0 +1,56 @@
+.intro_homepage {
+    height: 100vh;
+    background-image: url(https://st4.depositphotos.com/5624298/22323/i/1600/depositphotos_223231092-stock-photo-top-view-newspaper-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .intro_title {
+        color: black;
+        padding-top: 4rem;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.article_list {
+    h1 {
+        padding: 2rem 0;
+    }
+    a {
+        text-decoration: none;
+        & > :hover {
+            background-color: rgba(0, 0, 0, 0.178);
+        }
+        .article {
+            margin: 0.5rem 0;
+            color: black;
+            display: flex;
+
+            img {
+                height: 100px;
+                padding-right: 1rem;
+            }
+
+            .right_content {
+                span:nth-of-type(2) {
+                    margin-left: 4rem;
+                }
+            }
+        }
+    }
+}
+
+.article_show {
+    img {
+        height: 300px;
+    }
+    h1 {
+        margin-top: 1rem;
+    }
+}

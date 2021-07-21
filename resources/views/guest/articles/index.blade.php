@@ -1,21 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
 
-<body>
-    <h1>pagina guest index articles</h1>
-
+@section('content')
     <div class="container">
-        @foreach ($articles as $article)
-            <h2>{{ $article->title }}</h2>
-        @endforeach
-    </div>
-</body>
+        <div class="article_list">
+            <h1>List of Articles</h1>
 
-</html>
+            @foreach ($articles as $article)
+                <a href="{{ route('article.show', $article->id) }}">
+                    <div class="article">
+                        <img src="{{ $article->image }}" alt="">
+                        <div class="right_content">
+                            <h2>{{ $article->title }}</h2>
+                            <span>Writer: {{ $article->author }}</span>
+                            <span>Created on: {{ $article->create_date }}</span>
+
+                        </div>
+
+                    </div>
+                </a>
+            @endforeach
+
+        </div>
+
+    </div>
+
+
+
+@endsection

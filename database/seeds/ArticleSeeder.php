@@ -16,6 +16,7 @@ class ArticleSeeder extends Seeder
     {
         for ($i=0; $i < 10; $i++) { 
             $article = new Article();
+            $article->image = $faker->imageUrl(640, 480, 'article');
             $article->title = $faker->sentence();
             $article->content = $faker->text(400);
             $article->create_date = $faker->dateTimeThisYear();
