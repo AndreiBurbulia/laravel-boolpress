@@ -1,15 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content')
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Crated on</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($articles as $article)
+                    <tr>
+                        <td><img height="70" src="{{ $article->image }}" alt=""></td>
+                        <td>{{ $article->id }}</td>
+                        <td>{{ $article->title }}</td>
+                        <td>{{ $article->author }}</td>
+                        <td>{{ $article->create_date }}</td>
+                        <td>
+                            <a href="{{ route('admin.article.show', $article->id) }}"><i class="fas fa-eye"></i></a>
+                            <i class="fas fa-edit"></i>
+                            <form action="{{ route('admin.article.destroy', $article->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"><i class="fas fa-times"></i></button>
+                            </form>
 
-<body>
-    <h1>articles admin index</h1>
-</body>
+                        </td>
+                    </tr>
+                @endforeach
 
-</html>
+            </tbody>
+        </table>
+    </div>
+@endsection

@@ -26,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.articles.create');
     }
 
     /**
@@ -37,7 +37,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'image' => 'required',
+            'title' => 'required | max:200 | min:5',
+            'content' => 'required',
+            'create_date' => 'required',
+            'author' => 'required | min:3',
+            'public' => 'required | boolean'
+        ]);
+
+        Article::create($validated);
+
+        return redirect()->route('admin.article.index');
     }
 
     /**
@@ -48,7 +59,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('admin.articles.show', compact('article'));
     }
 
     /**
@@ -59,7 +70,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('admin.articles.edit', compact('article'));
     }
 
     /**
@@ -71,7 +82,18 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $validated = $request->validate([
+            'image' => 'required',
+            'title' => 'required | max:200 | min:5',
+            'content' => 'required',
+            'create_date' => 'required',
+            'author' => 'required | min:3',
+            'public' => 'required | boolean'
+        ]);
+
+        $article->update($validated);
+
+        return redirect()->route('admin.article.show', $article->id);
     }
 
     /**
@@ -82,6 +104,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect()->route('admin.dashboard');
     }
 }
