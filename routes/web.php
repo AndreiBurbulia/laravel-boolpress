@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*rotte utente */
-Route::get('/', function () {
-    return view('guest.welcome');
-});
+Route::get('/','PageController@index')->name('guest.welcome');
+Route::get('about', 'PageController@about')->name('guest.about');
+
+
+//Rotte Utente Article
 Route::resource('article', ArticleController::class)->only('index', 'show');
 
 

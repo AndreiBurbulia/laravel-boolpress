@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="article_list">
-            <h1>List of Articles</h1>
+            <h1>Articles</h1>
 
             @foreach ($articles as $article)
                 <a href="{{ route('article.show', $article->id) }}">
