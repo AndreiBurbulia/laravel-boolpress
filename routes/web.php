@@ -25,7 +25,6 @@ Route::resource('article', ArticleController::class)->only('index', 'show');
 Auth::routes();
 
 /*rotte admin */
-//if(Auth::id() === 1){};
     Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('article', ArticleController::class);
