@@ -68,6 +68,9 @@
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item {{ Auth::id() === 1 ? '' : 'd-none' }}"
+                                        href="{{ route('guest.welcome') }}">Guest Homepage</a>
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -80,8 +83,41 @@
             </div>
         </nav>
 
-        <main>
-            @yield('content')
+        <main class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <aside>
+                            <ul class="nav flex-column">
+                                <li class="nav-item nav-pills">
+                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}"
+                                        aria-current="page" href="{{ route('admin.dashboard') }}">
+                                        <i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                </li>
+                                <li class="nav-item nav-pills">
+                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.article.index' ? 'active' : '' }}"
+                                        href="{{ route('admin.article.index') }}">Article</a>
+                                </li>
+                                <li class="nav-item nav-pills">
+                                    <a class="nav-link" href="#">Users</a>
+                                </li>
+                                <li class="nav-item nav-pills">
+                                    <a class="nav-link" href="#">Category</a>
+                                </li>
+                                <li class="nav-item nav-pills">
+                                    <a class="nav-link" href="#">Tags</a>
+                                </li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-sm-9">
+                        @yield('content')
+
+                    </div>
+
+
+                </div>
+            </div>
         </main>
     </div>
 </body>

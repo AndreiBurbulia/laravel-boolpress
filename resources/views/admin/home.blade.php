@@ -15,8 +15,6 @@
                         @endif
 
                         {{ __('You are logged in!') }}
-                        <br>
-                        <a href="{{ route('admin.article.index') }}">Show all Articles</a>
                     </div>
                 </div>
             </div>
