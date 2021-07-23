@@ -46,9 +46,9 @@ class ArticleController extends Controller
             'author' => 'required | min:3',
             'public' => 'required | boolean'
         ]);
+
         
         $file_path = Storage::put('posts_images', $validated['image']);
-        //ddd($file_path);
         $validated['image'] = $file_path;
         Article::create($validated);
 
@@ -87,7 +87,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $validated = $request->validate([
-            'image' => 'required | image | max:50',
+            'image' => 'required | max:50',
             'title' => 'required | max:200 | min:5',
             'content' => 'required',
             'create_date' => 'required',
@@ -95,17 +95,18 @@ class ArticleController extends Controller
             'public' => 'required | boolean'
         ]);
 
-        /**/
-        if (array_key_exists('image', $validated)) {
-            $file_path = Storage::put('posts_images', $validated['image']);
-            $validated['image'] = $file_path;
-        }
+       /**/
+       if (array_key_exists('image', $validated)) {
+           $file_path = Storage::put('posts_images', $validated['image']);
+           $validated['image'] = $file_path;
+           Storage::delete($article->image);
+    }
 
 
 
-        $article->update($validated);
+    $article->update($validated);
 
-        return redirect()->route('admin.article.show', $article->id);
+    return redirect()->route('admin.article.show', $article->id);
     }
 
     /**

@@ -16,7 +16,7 @@
 
 
 
-        <form action="{{ route('admin.article.update', $article->id) }}" method="POST">
+        <form action="{{ route('admin.article.update', $article->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
