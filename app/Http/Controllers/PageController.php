@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Email;
 use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -26,8 +26,7 @@ class PageController extends Controller
             'message' => 'required'
         ]);
 
-        //visulizzazione della  mail
-        //return (new ContactFormMail($validated))->render();
+        Email::create($validated);
 
         Mail::to('admin@admin.com')->send(new ContactFormMail($validated));
         return redirect()->back()->with('message', 'Messaggio Mandato con successo!');
