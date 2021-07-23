@@ -15,8 +15,12 @@ class PageController extends Controller
 
     function about()
     {
-
         return view('guest.about');
+    }
+    function contact()
+    {
+
+        return view('guest.contact');
     }
 
     function sendContactForm(Request $request) {

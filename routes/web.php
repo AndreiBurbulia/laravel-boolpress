@@ -18,6 +18,9 @@ Route::get('/','PageController@index')->name('guest.welcome');
 Route::get('about', 'PageController@about')->name('guest.about');
 Route::post('about', 'PageController@sendContactForm')->name('contacts.send');
 
+Route::get('contact', 'PageController@contact')->name('guest.contact');
+Route::post('contact', 'PageController@sendContactForm')->name('contacts.send');
+
 
 //Rotte Utente Article
 Route::resource('article', ArticleController::class)->only('index', 'show');
