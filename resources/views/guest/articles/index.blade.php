@@ -9,7 +9,7 @@
             @foreach ($articles as $article)
                 <a href="{{ route('article.show', $article->id) }}">
                     <div class="article">
-                        <img src="{{ $article->image }}" alt="">
+                        <img src="{{ asset('storage/' . $article->image) }}" alt="">
                         <div class="right_content">
                             <h2>{{ $article->title }}</h2>
                             <span>Writer: {{ $article->author }}</span>

@@ -21,10 +21,13 @@
             @method('PUT')
 
             <div class="form-group">
+                <label for="image">Current Image: </label>
+                <img src="{{ asset('storage/' . $article->image) }}" alt="">
+            </div>
+            <div class="form-group">
                 <label for="image">Image</label>
-                <input type="text" name="image" id="image" class="form-control" placeholder="Add url of image"
-                    aria-describedby="helpImage" value="{{ $article->image }}">
-                <small id="helpImage" class="text-muted">Insert the URL of th Image</small>
+                <input type="file" name="image" id="image">
+                <small id="helpImage" class="text-muted">Insert the Image</small>
             </div>
 
             <div class="form-group">

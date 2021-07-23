@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 /*rotte utente */
 Route::get('/','PageController@index')->name('guest.welcome');
 Route::get('about', 'PageController@about')->name('guest.about');
+Route::post('about', 'PageController@sendContactForm')->name('contacts.send');
 
 
 //Rotte Utente Article

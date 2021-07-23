@@ -16,15 +16,23 @@
 
 
 
-        <form action="{{ route('admin.article.store') }}" method="POST">
+        <form action="{{ route('admin.article.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="image">Image</label>
                 <input type="text" name="image" id="image" class="form-control" placeholder="Add url of image"
                     aria-describedby="helpImage" value="{{ old('image') }}">
                 <small id="helpImage" class="text-muted">Insert the URL of th Image</small>
+            </div> --}}
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image">
+                <small id="helpImage" class="text-muted">Insert the Image</small>
             </div>
+
+
 
             <div class="form-group">
                 <label for="title">Title</label>
@@ -32,6 +40,8 @@
                     aria-describedby="helpTitle" value="{{ old('title') }}">
                 <small id="helpTitle" class="text-muted">Insert the title of the Article</small>
             </div>
+
+
 
             <div class="form-group">
                 <label for="content">Content</label>

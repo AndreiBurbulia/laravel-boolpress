@@ -18,7 +18,7 @@
             <tbody>
                 @foreach ($articles as $article)
                     <tr>
-                        <td><img height="70" src="{{ $article->image }}" alt=""></td>
+                        <td><img height="70" src="{{ asset('storage/' . $article->image) }}" alt=""></td>
                         <td>{{ $article->id }}</td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->author }}</td>

@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="article_show">
-            <img src="{{ $article->image }}" alt="">
+            <img src="{{ asset('storage/' . $article->image) }}" alt="">
             <h1>{{ $article->title }}</h1>
             <p>{{ $article->content }}</p>
             <p>Writer : {{ $article->author }}</p>

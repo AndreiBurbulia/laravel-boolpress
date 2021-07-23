@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -15,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('id', 'DESC')->get();
         return view('admin.articles.index', compact('articles'));
     }
 
@@ -38,14 +39,17 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'image' => 'required',
+            'image' => 'required | max:50',  //max:1 dice massimo 1kilobyte
             'title' => 'required | max:200 | min:5',
             'content' => 'required',
             'create_date' => 'required',
             'author' => 'required | min:3',
             'public' => 'required | boolean'
         ]);
-
+        
+        $file_path = Storage::put('posts_images', $validated['image']);
+        //ddd($file_path);
+        $validated['image'] = $file_path;
         Article::create($validated);
 
         return redirect()->route('admin.article.index');
@@ -83,13 +87,21 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $validated = $request->validate([
-            'image' => 'required',
+            'image' => 'required | image | max:50',
             'title' => 'required | max:200 | min:5',
             'content' => 'required',
             'create_date' => 'required',
             'author' => 'required | min:3',
             'public' => 'required | boolean'
         ]);
+
+        /**/
+        if (array_key_exists('image', $validated)) {
+            $file_path = Storage::put('posts_images', $validated['image']);
+            $validated['image'] = $file_path;
+        }
+
+
 
         $article->update($validated);
 
