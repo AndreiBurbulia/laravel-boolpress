@@ -87,7 +87,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $validated = $request->validate([
-            'image' => 'required | max:50',
+            'image' => 'nullable | max:50',
             'title' => 'required | max:200 | min:5',
             'content' => 'required',
             'create_date' => 'required',

@@ -2,22 +2,16 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="card">
+            <h1>Articles</h1>
+            <p>You have {{ $n_articles }} articles on blog.</p>
+            <p>You have {{ $public_articles }} public on blog.</p>
+            <p>You have {{ $private_articles }} private on blog.</p>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+        </div>
 
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+            <h1>You have {{ $n_contacts }} mails to responde!</h1>
         </div>
     </div>
 @endsection

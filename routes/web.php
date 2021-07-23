@@ -31,6 +31,8 @@ Auth::routes();
 /*rotte admin */
     Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
+        Route::get('/contact', 'HomeController@contact')->name('contact');
+        Route::delete('/contact/{email}', 'HomeController@responseSend')->name('contact.destroy');
         Route::resource('article', ArticleController::class);
     
     });

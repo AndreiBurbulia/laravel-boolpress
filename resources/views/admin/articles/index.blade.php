@@ -11,6 +11,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Author</th>
+                    <th>Public?</th>
                     <th>Crated on</th>
                     <th>Actions</th>
                 </tr>
@@ -18,10 +19,11 @@
             <tbody>
                 @foreach ($articles as $article)
                     <tr>
-                        <td><img height="70" src="{{ asset('storage/' . $article->image) }}" alt=""></td>
+                        <td><img width="100" src="{{ asset('storage/' . $article->image) }}" alt=""></td>
                         <td>{{ $article->id }}</td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->author }}</td>
+                        <td>{{ $article->public }}</td>
                         <td>{{ $article->create_date }}</td>
                         <td>
                             <a href="{{ route('admin.article.show', $article->id) }}"><i class="fas fa-eye"></i></a>

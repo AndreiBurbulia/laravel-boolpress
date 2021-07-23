@@ -92,14 +92,18 @@
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}"
                                         aria-current="page" href="{{ route('admin.dashboard') }}">
-                                        <i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                                    </a>
                                 </li>
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'admin.article.index' ? 'active' : '' }}"
-                                        href="{{ route('admin.article.index') }}">Article</a>
+                                        href="{{ route('admin.article.index') }}">Article
+                                    </a>
                                 </li>
                                 <li class="nav-item nav-pills">
-                                    <a class="nav-link" href="#">Users</a>
+                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.contact' ? 'active' : '' }}"
+                                        href="{{ route('admin.contact') }}">Contacts
+                                    </a>
                                 </li>
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link" href="#">Category</a>
