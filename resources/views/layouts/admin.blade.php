@@ -107,7 +107,7 @@
                                 </li>
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'admin.categories' ? 'active' : '' }}"
-                                        href="{{ route('admin.categories') }}">Categories
+                                        href="{{ route('admin.categories.index') }}">Categories
                                     </a>
                                 </li>
                                 <li class="nav-item nav-pills">

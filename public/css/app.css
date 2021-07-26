@@ -10982,7 +10982,7 @@ a.text-dark:focus {
 }
 
 .article_list a .article img {
-  height: 100px;
+  width: 200px;
   padding-right: 1rem;
 }
 

@@ -7,7 +7,7 @@
             <h1>Articles</h1>
 
             @foreach ($articles as $article)
-                <a href="{{ route('article.show', $article->id) }}">
+                <a href="{{ route('article.show', $article->id) }}" class="{{ $article->public ? '' : 'd-none' }}">
                     <div class="article">
                         <img src="{{ asset('storage/' . $article->image) }}" alt="">
                         <div class="right_content">
