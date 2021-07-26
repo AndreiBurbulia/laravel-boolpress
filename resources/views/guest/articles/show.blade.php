@@ -9,6 +9,7 @@
             <p>{{ $article->content }}</p>
             <p>Writer : {{ $article->author }}</p>
             <p>Created on : {{ $article->create_date }}</p>
+            <p>Category : {{ $article->category->name }}</p>
 
         </div>
     </div>

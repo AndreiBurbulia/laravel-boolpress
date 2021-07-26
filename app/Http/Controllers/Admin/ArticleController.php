@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Article;
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -25,9 +26,10 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $categories)
     {
-        return view('admin.articles.create');
+        $categories = Category::all();
+        return view('admin.articles.create', compact('categories'));
     }
 
     /**
@@ -44,9 +46,9 @@ class ArticleController extends Controller
             'content' => 'required',
             'create_date' => 'required',
             'author' => 'required | min:3',
+            'category_id' => 'required | exists:categories,id',
             'public' => 'required | boolean'
         ]);
-
         
         $file_path = Storage::put('posts_images', $validated['image']);
         $validated['image'] = $file_path;
@@ -74,7 +76,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('admin.articles.edit', compact('article'));
+        $categories = Category::all();
+        return view('admin.articles.edit', compact('article', 'categories'));
     }
 
     /**
@@ -92,6 +95,7 @@ class ArticleController extends Controller
             'content' => 'required',
             'create_date' => 'required',
             'author' => 'required | min:3',
+            'category_id' => 'required | exists:categories,id',
             'public' => 'required | boolean'
         ]);
 

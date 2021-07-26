@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
 use App\Category;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +14,18 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
-        return view('guest.articles.index', compact('articles'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(Category $category)
     {
-        return view('guest.articles.show', compact('article'));
+        //
     }
+
 }

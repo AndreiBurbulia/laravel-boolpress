@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Email;
 use App\Article;
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,5 +44,15 @@ class HomeController extends Controller
         $email->delete();
 
         return redirect()->route('admin.contact');
+    }
+
+    public function categories()
+    {
+        if(Auth::id() === 1){
+            $categories = Category::all();
+            return view('admin.categories', compact('categories'));
+        }
+
+        return view('guest.welcome');
     }
 }

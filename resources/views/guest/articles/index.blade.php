@@ -14,7 +14,6 @@
                             <h2>{{ $article->title }}</h2>
                             <span>Writer: {{ $article->author }}</span>
                             <span>Created on: {{ $article->create_date }}</span>
-
                         </div>
 
                     </div>

@@ -67,6 +67,18 @@
             </div>
 
             <div class="form-group">
+                <label for="category_id">Category</label>
+                <select class="custom-select" name="category_id" id="category_id">
+
+                    @foreach ($categories as $category)
+                        <option {{ $category->id == 1 ? 'selected' : '' }} value="{{ $category->id }}">
+                            {{ $category->name }}</option>
+
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="public">Public?</label>
                 <input type="text" name="public" id="public" class="form-control" placeholder="Is public post?"
                     aria-describedby="helpPublic">

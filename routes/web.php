@@ -32,6 +32,7 @@ Auth::routes();
     Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::get('/contact', 'HomeController@contact')->name('contact');
+        Route::get('/categories', 'HomeController@categories')->name('categories');
         Route::delete('/contact/{email}', 'HomeController@responseSend')->name('contact.destroy');
         Route::resource('article', ArticleController::class);
     
