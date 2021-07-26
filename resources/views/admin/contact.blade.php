@@ -4,7 +4,7 @@
     <div class="container">
         <h1>contact section</h1>
 
-        <table class="table table-striped table-inverse table-responsive">
+        <table class="table table-striped table-inverse">
             <thead class="thead-inverse">
                 <tr>
                     <th>ID</th>
