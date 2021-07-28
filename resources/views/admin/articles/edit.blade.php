@@ -73,6 +73,18 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select multiple class="custom-select" name="tags[]" id="tags">
+                    @if ($tags)
+                        @foreach ($tags as $tag)
+                            <option {{ $article->tags->contains($tag->id) ? 'selected' : ' ' }}
+                                value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    @endif
+                </select>
+            </div>
+
 
             <div class="form-group">
                 <label for="public">Public?</label>

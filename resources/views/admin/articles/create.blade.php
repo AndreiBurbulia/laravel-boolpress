@@ -19,13 +19,6 @@
         <form action="{{ route('admin.article.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            {{-- <div class="form-group">
-                <label for="image">Image</label>
-                <input type="text" name="image" id="image" class="form-control" placeholder="Add url of image"
-                    aria-describedby="helpImage" value="{{ old('image') }}">
-                <small id="helpImage" class="text-muted">Insert the URL of th Image</small>
-            </div> --}}
-
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" name="image" id="image">
@@ -75,6 +68,18 @@
                             {{ $category->name }}</option>
 
                     @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select multiple class="custom-select" name="tags[]" id="tags">
+                    @if ($tags)
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+
+                        @endforeach
+                    @endif
                 </select>
             </div>
 

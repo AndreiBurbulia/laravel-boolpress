@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Article;
 use App\Category;
+use App\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -26,10 +27,11 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Category $categories)
+    public function create(Category $categories, Tag $tags)
     {
         $categories = Category::all();
-        return view('admin.articles.create', compact('categories'));
+        $tags = tag::all();
+        return view('admin.articles.create', compact('categories', 'tags'));
     }
 
     /**
@@ -47,13 +49,18 @@ class ArticleController extends Controller
             'create_date' => 'required',
             'author' => 'required | min:3',
             'category_id' => 'required | exists:categories,id',
+            'tags' => 'exists:tags,id',
             'public' => 'required | boolean'
         ]);
         
         $file_path = Storage::put('posts_images', $validated['image']);
         $validated['image'] = $file_path;
-        Article::create($validated);
 
+        //ddd($validated);
+        // Article::create($validated);
+        // $article->tags()->attach($request->tags);
+
+        Article::create($validated)->tags()->attach($request->tags);
         return redirect()->route('admin.article.index');
     }
 
@@ -77,7 +84,8 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $categories = Category::all();
-        return view('admin.articles.edit', compact('article', 'categories'));
+        $tags = Tag::all();
+        return view('admin.articles.edit', compact('article', 'categories', 'tags'));
     }
 
     /**
@@ -96,6 +104,7 @@ class ArticleController extends Controller
             'create_date' => 'required',
             'author' => 'required | min:3',
             'category_id' => 'required | exists:categories,id',
+            'tags' => 'exists:tags,id',
             'public' => 'required | boolean'
         ]);
 
@@ -104,13 +113,14 @@ class ArticleController extends Controller
            $file_path = Storage::put('posts_images', $validated['image']);
            $validated['image'] = $file_path;
            Storage::delete($article->image);
-    }
+        }
 
 
 
-    $article->update($validated);
+        $article->update($validated);
+        $article->tags()->sync($request->tags);
 
-    return redirect()->route('admin.article.show', $article->id);
+        return redirect()->route('admin.article.show', $article->id);
     }
 
     /**
