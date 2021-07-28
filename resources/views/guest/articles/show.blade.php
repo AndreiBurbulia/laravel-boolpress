@@ -10,6 +10,12 @@
             <p>Writer : {{ $article->author }}</p>
             <p>Created on : {{ $article->create_date }}</p>
             <p>Category : {{ $article->category->name }}</p>
+            @forelse ($article->tags as $tag)
+                <p>Tags : {{ $tag->name }}</p>
+
+            @empty
+                <span>No Tag</span>
+            @endforelse
 
         </div>
     </div>

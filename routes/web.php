@@ -35,5 +35,6 @@ Auth::routes();
         Route::delete('/contact/{email}', 'HomeController@responseSend')->name('contact.destroy');
         Route::resource('article', ArticleController::class);
         Route::resource('categories', CategoryController::class);
+        Route::resource('tags', TagController::class);
     
     });

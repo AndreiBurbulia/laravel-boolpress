@@ -106,12 +106,14 @@
                                     </a>
                                 </li>
                                 <li class="nav-item nav-pills">
-                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.categories' ? 'active' : '' }}"
+                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.categories.index' ? 'active' : '' }}"
                                         href="{{ route('admin.categories.index') }}">Categories
                                     </a>
                                 </li>
                                 <li class="nav-item nav-pills">
-                                    <a class="nav-link" href="#">Tags</a>
+                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.tags.index' ? 'active' : '' }}"
+                                        href="{{ route('admin.tags.index') }}">Tags
+                                    </a>
                                 </li>
                             </ul>
                         </aside>
