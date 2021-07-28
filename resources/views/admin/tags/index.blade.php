@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card">
-            <h1>Categories admin</h1>
+            <h1>Tags admin</h1>
 
 
             <a href="{{ route('admin.tags.create') }}" class="btn btn-success my-2">Add New Tag</a>

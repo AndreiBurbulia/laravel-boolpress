@@ -17,9 +17,6 @@
                 @empty
                     <span> No Tag</span>
                 @endforelse
-
-
-
             </p>
 
         </div>
