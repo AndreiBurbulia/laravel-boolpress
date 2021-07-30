@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Article;
 use App\Email;
 use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
@@ -35,5 +37,11 @@ class PageController extends Controller
         Mail::to('admin@admin.com')->send(new ContactFormMail($validated));
         return redirect()->back()->with('message', 'Messaggio Mandato con successo!');
 
+    }
+
+
+    function vueHome()
+    {
+        return view('articles', compact('articles'));
     }
 }

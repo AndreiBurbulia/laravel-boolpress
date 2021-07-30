@@ -25,6 +25,7 @@ Route::post('contact', 'PageController@sendContactForm')->name('contacts.send');
 //Rotte Utente Article
 Route::resource('article', ArticleController::class)->only('index', 'show');
 
+Route::get('vue-articles', 'PageController@vueHome')->name('vue-article');
 
 Auth::routes();
 

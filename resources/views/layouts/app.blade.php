@@ -37,7 +37,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a href="{{ route('article.index') }}">Article</a></li>
+                        <li><a href="{{ url('/vue-articles') }}">Vue Article</a></li>
+                        <li><a class="ml-3" href="{{ route('article.index') }}">Article</a></li>
                         <li><a class="ml-3" href="{{ route('guest.about') }}">About</a></li>
                         <li><a class="ml-3" href="{{ route('guest.contact') }}">Contact</a></li>
                     </ul>
@@ -68,7 +69,7 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                     document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 
@@ -89,7 +90,7 @@
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                     document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 
